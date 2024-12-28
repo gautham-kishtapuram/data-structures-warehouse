@@ -18,23 +18,29 @@ public class SinglyLinkedList<T> {
 		} else {
 			Node<T> newNode = this.node;
 			while (newNode.next != null) {
-				newNode = newNode.next ;
+				newNode = newNode.next;
 			}
 			newNode.next = dataNode;
 		}
 	}
 
 	public String print() {
-		StringBuilder stringBuilder = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder("[");
 		if (this.node != null) {
 			Node<T> nodeData = this.node;
-			stringBuilder.append(nodeData.item).append(" ");
-			while (nodeData.next != null) {
+
+			while (nodeData != null) {
+				stringBuilder.append(nodeData.item);
 				nodeData = nodeData.next;
-				stringBuilder.append(nodeData.item).append(" ");
+
+				if (nodeData != null) {
+					stringBuilder.append(",");
+				}
+
 			}
 
 		}
+		stringBuilder.append("]");
 		return stringBuilder.toString();
 	}
 
